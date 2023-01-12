@@ -2,9 +2,9 @@
 <table name = 'modelTable' id="modelTable" class="model-Table" style="overflow:scroll;max-height: 600px">   
 <thead>           
 <tr>               
-<th>ModelName</th>    
-<th>ModelVesrion</th>       
-<th>Remove</th>    
+<th>ModelName</th>       //this is first column
+<th>ModelVesrion</th>    //this is second column 
+<th>Remove</th>          //this is remove column(with remove functionality)
 </tr>      
 </thead>     
 <tbody>      
@@ -14,20 +14,20 @@
 </div>
 
 //this is javascript code written in html file
-function addModelTableHtml() 
+function addModelTableHtml()                                       //this function is for append the new row into table dynamically whatever user will select from dropdown
 {     
-var sel = document.getElementById("modelName_inputs");      
-var modelName= sel.options[sel.selectedIndex].text;      
-var liHtml = `<tr style="background-color:#FFFFFF">                    
-<td>${modelName}</td>   
-<td>${model_version.value}</td>       
+var sel = document.getElementById("modelName_inputs");             //modelName_inputs is id for 1st dropdown 
+var modelName= sel.options[sel.selectedIndex].text;                //index of selected option from dropdown adding into one variable 
+var liHtml = `<tr style="background-color:#FFFFFF">                //one variable I have created which is adding row dynamically    
+<td>${modelName}</td>                                              //this is adding value in first column
+<td>${model_version.value}</td>                                    //this is adding value in second column
 <td>                  
-<span class='ecl-button-standard remove_user' onclick="removeModel(this)"><i class="fa fa-trash"></i></span></a>   
+<span class='ecl-button-standard remove_user' onclick="removeModel(this)"><i class="fa fa-trash"></i></span></a>      // removing selected entry
 </td>                   
 </tr>`;   
-modelList.$("#modelTable tbody").append(liHtml);
+modelList.$("#modelTable tbody").append(liHtml);                   //appending row into table
 } 
-function removeModel(el)
+function removeModel(el)                                           //remove funtion calling on click of remove logo in third column
 {     
 el.closest("tr").remove(); 
 }
