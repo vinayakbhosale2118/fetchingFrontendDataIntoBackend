@@ -1,0 +1,33 @@
+<div style="overflow:scroll;max-height: 600px">   
+<table name = 'modelTable' id="modelTable" class="model-Table" style="overflow:scroll;max-height: 600px">   
+<thead>           
+<tr>               
+<th>ModelName</th>    
+<th>ModelVesrion</th>       
+<th>Remove</th>    
+</tr>      
+</thead>     
+<tbody>      
+<tr></tr>    
+</tbody>  
+</table>
+</div>
+
+//this is javascript code written in html file
+function addModelTableHtml() 
+{     
+var sel = document.getElementById("modelName_inputs");      
+var modelName= sel.options[sel.selectedIndex].text;      
+var liHtml = `<tr style="background-color:#FFFFFF">                    
+<td>${modelName}</td>   
+<td>${model_version.value}</td>       
+<td>                  
+<span class='ecl-button-standard remove_user' onclick="removeModel(this)"><i class="fa fa-trash"></i></span></a>   
+</td>                   
+</tr>`;   
+modelList.$("#modelTable tbody").append(liHtml);
+} 
+function removeModel(el)
+{     
+el.closest("tr").remove(); 
+}
